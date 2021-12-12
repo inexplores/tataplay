@@ -1,93 +1,123 @@
-# sneh-tatasky
+<p align="center"><img src="https://p.kindpng.com/picc/s/404-4041763_tata-sky-logo-png-tata-sky-logo-vector.png" ></p>
 
-A script to generate the m3u playlist containing direct streamable file (.mpd or MPEG-DASH or DASH) based on the channels that the user has subscribed on the Tata Sky portal. You just have to login using your password or otp that's it.
 
-## Getting started
+# Tata Sky IPTV Script generator
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+A script to generate the m3u playlist containing direct streamable file (.mpd or MPEG-DASH or DASH) based on the channels that the user has subscribed on the Tata Sky portal. You just have to login using your password or otp that's it
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+# Requirements
 
-## Add your files
++ A working brain
++ Knowledge of basic python
++ A working Tata Sky account
++ Channels that you want to watch, already subscribed (I'm sorry, no freebies)
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+# How to use
 
+# App (Easy)
+<hr>
+
+- You can simply use the android app in your mobile phone or TV, login and then generate an m3u
+- The app can be found [here](static/app.apk)
+- Note that you have to generate a new playlist before the exploit time, that is mentioned in the app, or just one day for simplicity
+- The app can smartly detect if you have a playlist already in the mentioned directory,(the location of the file can be found inside the app), and it overwrites the content if you generate it again and again
+- You can point Tivimate to the location mentioned in the app, and just update once whenever you want to watch the playlist, should work fine
+- **There may be issues navigating through the textfields in TV, Try with the left key to navigate down, works for me, will fix, when I have time**
+- Minimum Supported Version : Android 5.0
+
+
+## Script (Difficult)
+
+<hr>
+
+### Setting up your environment
+
++ Make sure you have [python](https://www.python.org/downloads/) up and running on your system. **If you don't know how to do this then well, don't think of proceeding further**
++ You need `requests` to be installed. Do that by using ``pip install requests``
+
+### Running the scripts
++ Clone this to your directory using ```git clone https://github.com/ForceGT/TSPrivateAPI``` or download the `zip` file and then go inside the `code_samples` directory and open your terminal there
++ Change to the ```code_samples``` directory by using  ```cd code_samples```
++ Simply run ```main.py``` (the main script) using the following code
+```python
+    python main.py
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/techiesneh/sneh-tatasky.git
-git branch -M main
-git push -uf origin main
-```
++ You will get options to login using the different methods, upon successful login a ```userDetails.json``` file is created which contains important details of the user. The ```accessToken``` has to be updated from time to time. To do so run the login logic again. If you delete the ```userDetails.json``` file you will have to login again so please be careful 
 
-## Integrate with your tools
++ You can generate m3u file by selecting option 3. This generates ```allChannelPlaylist.m3u``` file in the current directory.**NOTE: Please run this only after logging in using Step 1 or 2 otherwise the script exits with an error**
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://gitlab.com/techiesneh/sneh-tatasky/-/settings/integrations)
++ You need to login just once usually, it will create a `userDetails.json` file once you login, and then you can just regenerate the playlist each day when you would like to use it. If you don't see the `userDetails.json` file anywhere, then you may have to login again
 
-## Collaborate with your team
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-## Test and Deploy
+# Playing in Android TV
 
-Use the built-in continuous integration in GitLab.
++ You can use Kodi with the PVR Simple IPTV Plugin [doesn't work yet]. The generated m3u file already is in the standard format that can be read by the plugin (WIP)
++ You can use Tivimate app to play the m3u playlist too
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+# Playing in a browser (tried with Chrome)
 
-***
++ I personally use [Native MPEG-Dash + HLS Playback](https://chrome.google.com/webstore/detail/native-mpeg-dash-%20-hls-pl/cjfbmleiaobegagekpmlhmaadepdeedn) which doesn't suppport playlists yet
 
-# Editing this README
+See the below section on `Getting hold of individual channels` to know how to get the link to play a specific channel as you cannot play the entire playlist
++  Get the channel url (ends with ```.mpd```) and paste it in the browser
++ The extension automatically asks for the license url. You should then input the  license url.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:b70203e5d97cfc25a0615dafb29ecf6e?https://www.makeareadme.com/) for this template.
+  
+# Good points to know
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
++ You must have basic knowledge of how to run scripts using python
++ You **CANNOT** have the channels, which you have not subscribed in the generated playlist
++ The generated m3u file **has to be updated daily**.
+  If you generated it at 11:00pm today it will expire by 11:00pm tomorrow.
+  **You don't need to relogin**, just generate the playlist again using command number 3 in the script.
+  
 
-## Name
-Choose a self-explaining name for your project.
+# Getting hold of individual channels
+- Just open the m3u file generated above in any text editor of your choice and search for your channel using the search functionality of your editor
+- The channel url is the one that starts with `https`and ends with ```.mpd``` 
+- The license url following the `#KODIPROP:inputstream.adaptive.license_key=` field
+- The license url and the channel url are the only two fields needed to play the channel 
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+# How it works (For the geeks only)
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+![](images/tsky.png)
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Login 
+The figure shows how the API authenticates any user.Password mechanism also works kinda similar
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### Explanation of different files used in the code_samples directory
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+```allChannels.py``` - This generates a file allChannels.json containing all the channels available on the TataSky platform irrespective of whether the user has subscribed or not. The file has already been included in the repository
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+```constants.py``` - This is a list of urls, headers, payloads that might be used anywhere in the other files
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+```jwttoken.py``` - 
++ This contains the logic need for generation of the jwt . This is different from the user access Token generated by the backend upon user login. This is needed to get a license to play each channel url / mpeg dash stream /mpd file
+The token generated here is appended to the license_url of each channel using ls_session key
+You can find how it is done in the detailed manner in the file itself
++ This can be used independently , just specify the channelId for which you need to get the token and you are good to go
+The script calls this repeatedly for all channels in the user subscribed/entitlement list
 
-## License
-For open source projects, say how it is licensed.
+```main.py``` - This contains the logic for the menu generation for the user. It might be updated constantly
+```utils.py``` - This contains the logic for the m3u generation. This will be integrated soon in the main file
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+API Doc can be found [here](static/apidoc.md)
+
+<br>
+
+<h3>📝 Original Credits : </h3>
+
+<h5> © 2021 [ Force GT ] - For This TataSky Repo </h5>
+<h5> [ Me ] - For Modifying Something 😅 </h5>
+
+---
+<h4 align='center'>© 2021 Techie Sneh</h4>
+
+<!-- DO NOT REMOVE THIS CREDIT 🤬 🤬 -->
+
 
