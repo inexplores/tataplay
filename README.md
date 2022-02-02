@@ -1,7 +1,7 @@
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Tata_Play_2022_logo.svg/2560px-Tata_Play_2022_logo.svg.png" ></p>
 
 
-# Tata Sky IPTV Script generator
+# Tata Play IPTV Script generator
 
 A script to generate the m3u playlist containing direct streamable file (.mpd or MPEG-DASH or DASH) based on the channels that the user has subscribed on the Tata Sky portal. You just have to login using your password or otp that's it
 
@@ -9,7 +9,7 @@ A script to generate the m3u playlist containing direct streamable file (.mpd or
 
 + A working brain
 + Knowledge of basic python
-+ A working Tata Sky account
++ A working Tata Play account
 + Channels that you want to watch, already subscribed (I'm sorry, no freebies)
 
 # How to use
