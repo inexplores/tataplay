@@ -1,4 +1,4 @@
-<p align="center"><img src="https://p.kindpng.com/picc/s/404-4041763_tata-sky-logo-png-tata-sky-logo-vector.png" ></p>
+<p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Tata_Play_2022_logo.svg/2560px-Tata_Play_2022_logo.svg.png" ></p>
 
 
 # Tata Sky IPTV Script generator
